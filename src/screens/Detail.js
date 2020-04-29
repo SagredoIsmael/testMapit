@@ -4,7 +4,7 @@ import {
 } from 'react-native'
 
 
-const Detail = () =>
+const Detail = ({motocycle, goBack}) =>
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text style={{ color: 'pink' }}>Detail Screen</Text>
         
