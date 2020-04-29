@@ -3,11 +3,11 @@ import { compose } from 'redux'
 import { connectNavigation } from '@sagredoismael/navigation_rn'
 import Main from '../../screens/Main'
 import { fetchMotocycles } from '../actions/motocycles'
-
+import { getDataMotocycles } from '../selectors/motocycles'
 
 const mapStateToProps = state => (
     {
-        
+        motocycles: getDataMotocycles(state)
     }
 )
 

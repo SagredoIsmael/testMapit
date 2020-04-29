@@ -1,15 +1,19 @@
 import React, { useEffect } from 'react'
-import { View, Button, StyleSheet } from 'react-native'
-import { MAIN } from '../screens/Navigator'
+import { View, Button, Text, StyleSheet, FlatList } from 'react-native'
+import { DETAIL } from '../screens/Navigator'
 
-export default ({ navigate, fetchMotocycles  }) => {
+export default ({ navigate, fetchMotocycles, motocycles  }) => {
     useEffect(() => { fetchMotocycles() }, [])
 
     return (
       <View style={styles.container}>
+        <FlatList
+          data={motocycles}
+          renderItem={({item}) => <Text style={styles.item}>{item.name}</Text>}
+        />
         <Button
           title="go to detail"
-          onPress={() => navigate(MAIN)}
+          onPress={() => navigate(DETAIL)}
         />
       </View>
     )
@@ -20,5 +24,10 @@ export default ({ navigate, fetchMotocycles  }) => {
       flex: 1,
       justifyContent: 'center', 
       alignItems: 'center'
+    },
+    item: {
+      padding: 10,
+      fontSize: 18,
+      height: 44,
     },
   })
