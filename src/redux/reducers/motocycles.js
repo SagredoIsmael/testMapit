@@ -1,8 +1,9 @@
 
-import { SET_MOTOCYCLES } from '../actions/types'
+import { SET_MOTOCYCLES, FETCH_ERROR } from '../actions/types'
 
 const initialState = {
   data: [],
+  error: null
 }
 
 export default (state = initialState, action) => {
@@ -13,6 +14,12 @@ export default (state = initialState, action) => {
       return {
         ...state,
         data: action.motocycles
+      }
+
+    case FETCH_ERROR:
+      return {
+        ...state,
+        error: action.error
       }
 
     default:

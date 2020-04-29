@@ -5,7 +5,7 @@ import detailScreen from '../redux/containers/detail'
 import { screensNames } from '../utils/screens'
 import colors from '../utils/colors'
 
-const { MAIN, DETAIL} = screensNames
+export const { MAIN, DETAIL} = screensNames
 
 const Navigator = () =>
   <NavigationWrapper screens={screens} headerCommonsOptions={headerCommonsOptions} />
