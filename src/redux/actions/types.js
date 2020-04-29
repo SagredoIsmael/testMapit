@@ -1,1 +1,2 @@
 export const SET_MOTOCYCLES = 'SET_MOTOCYCLES'
+export const FETCH_ERROR = 'FETCH_ERROR'
