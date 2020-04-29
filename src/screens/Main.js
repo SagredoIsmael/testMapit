@@ -1,19 +1,24 @@
-import React from 'react'
-import {
-  Text, View, Button
-} from 'react-native'
+import React, { useEffect } from 'react'
+import { View, Button, StyleSheet } from 'react-native'
+import { MAIN } from '../screens/Navigator'
 
-const Main = ({ navigate }) => {
+export default ({ navigate, fetchMotocycles  }) => {
+    useEffect(() => { fetchMotocycles() }, [])
 
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text style={{ color: 'red' }}>first</Text>
+      <View style={styles.container}>
         <Button
-          title="test"
-          onPress={() => console.log("@@test")}
+          title="go to detail"
+          onPress={() => navigate(MAIN)}
         />
       </View>
     )
   }
 
-  export default Main
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'center', 
+      alignItems: 'center'
+    },
+  })
