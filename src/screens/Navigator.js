@@ -1,7 +1,7 @@
 import React from 'react'
 import NavigationWrapper from '@sagredoismael/navigation_rn'
-import MainScreen from './Main'
-import DetailScreen from './Detail'
+import mainScreen from '../redux/containers/main'
+import detailScreen from '../redux/containers/detail'
 import { screensNames } from '../utils/screens'
 import colors from '../utils/colors'
 
@@ -13,11 +13,12 @@ const Navigator = () =>
 const screens = [ 
   {
     name: MAIN,
-    component: MainScreen,
+    component: mainScreen,
   },
   {
     name: DETAIL,
-    component: DetailScreen,
+    component: detailScreen,
+    hasDrawer: true,
   }
 ]
 
