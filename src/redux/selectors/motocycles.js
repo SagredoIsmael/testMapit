@@ -17,3 +17,8 @@ export const getErrorMotocycles = pipe(
     getMotocycles,
     get('error')
 )
+
+export const getSelectedMotocycles = pipe(
+    getMotocycles,
+    get('selected')
+)

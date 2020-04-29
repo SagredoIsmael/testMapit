@@ -1,4 +1,4 @@
-import { SET_MOTOCYCLES, FETCH_STATUS_ERROR, FETCH_STATUS_PENDING  } from './types'
+import { SET_MOTOCYCLES, FETCH_STATUS_ERROR, FETCH_STATUS_PENDING, SET_MOTOCYCLE_SELECTED  } from './types'
 import api from '../../utils/API'
 
 const setMotocycles = motocycles => ({
@@ -13,6 +13,11 @@ const setError = error => ({
 
 const isLoading = () => ({
     type: FETCH_STATUS_PENDING
+})
+
+export const setSelected = motocycle => ({
+    type: SET_MOTOCYCLE_SELECTED,
+    motocycle
 })
 
 export const fetchMotocycles = () => dispatch => {
