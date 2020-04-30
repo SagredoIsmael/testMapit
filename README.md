@@ -50,12 +50,14 @@ React native project with a fake api about motorcycle sale
 
 5. Clone this repository (git clone https://github.com/SagredoIsmael/testMapit)
 
-6. Run npm install , all required components will be installed automatically
+6. Install dependencies with npm, all required components will be installed automatically
+    
+    `$ npm install`
 
+    *  iOS -> You have to install the pods with: 
+        `$ cd ios && pod install`
 
-    *  iOS
-        Run pod install from testmapit/ios folder
-        Start XCode and open generated testmapit.xcworkspace
+        And start XCode and open generated testmapit.xcworkspace
 
     
     *  Android
@@ -74,7 +76,7 @@ MIT
 
 
 
-## 📖Troubleshooting
+## 📖 Troubleshooting
 
 Create keyStore for Android:
 *  Launch command: $cd android/app && keytool -genkey -v -keystore debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000
