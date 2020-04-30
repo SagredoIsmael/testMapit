@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
-import { View, Button, Text, StyleSheet, FlatList } from 'react-native'
+import { View, Button, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native'
 import { DETAIL } from '../screens/Navigator'
 import Alert from '../components/Alert'
 import colors from '../utils/colors'
 
-export default ({ navigate, fetchMotocycles, motocycles, isLoading, error }) => {
+export default ({ navigate, fetchMotocycles, motocycles, isLoading, error, setSelected }) => {
   useEffect(() => { fetchMotocycles() }, [])
   error && Alert('Fetch error', error.message)
 
@@ -16,17 +16,17 @@ export default ({ navigate, fetchMotocycles, motocycles, isLoading, error }) => 
           onRefresh={() => fetchMotocycles()}
           refreshing={isLoading}
           renderItem={({ item }) =>
-            <View
-              style={styles.item}>
-              <Text style={styles.textItem}>{item.id}</Text>
-              <Text>{item.modelo} - {item.nombre}</Text>
-            </View>
+            <TouchableOpacity style={styles.item} onPress={() => {
+              setSelected(item)
+              navigate(DETAIL)
+            }}>
+              <View >
+                <Text style={styles.textItem}>{item.id}</Text>
+                <Text>{item.modelo} - {item.nombre}</Text>
+              </View>
+            </TouchableOpacity>
           }
         />}
-      <Button
-        title="go to detail"
-        onPress={() => navigate(DETAIL)}
-      />
     </View>
   )
 }
@@ -34,7 +34,7 @@ export default ({ navigate, fetchMotocycles, motocycles, isLoading, error }) => 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 40,
+    marginTop: 20,
   },
   item: {
     borderBottomWidth: 2,
