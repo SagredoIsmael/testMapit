@@ -38,8 +38,9 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>Se necesitan los permisos de localización para mostrar ubicación en el mapa</string>
 	<key>UIAppFonts</key>
+	
 <array>
   <string>AntDesign.ttf</string>
   <string>Entypo.ttf</string>
