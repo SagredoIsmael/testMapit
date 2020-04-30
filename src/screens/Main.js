@@ -3,6 +3,7 @@ import { View, Button, Text, StyleSheet, FlatList, TouchableOpacity } from 'reac
 import { DETAIL } from '../screens/Navigator'
 import Alert from '../components/Alert'
 import colors from '../utils/colors'
+import Icon from '../components/Icon'
 
 export default ({ navigate, fetchMotocycles, motocycles, isLoading, error, setSelected }) => {
   useEffect(() => { fetchMotocycles() }, [])
@@ -20,9 +21,12 @@ export default ({ navigate, fetchMotocycles, motocycles, isLoading, error, setSe
               setSelected(item)
               navigate(DETAIL)
             }}>
-              <View >
-                <Text style={styles.textItem}>{item.id}</Text>
-                <Text>{item.modelo} - {item.nombre}</Text>
+              <View style={styles.cardWrapper} >
+                <View >
+                  <Text style={styles.textItem}>{item.id}</Text>
+                  <Text>{item.modelo} - {item.nombre}</Text>
+                </View>
+                <Icon name={'motorcycle'} />
               </View>
             </TouchableOpacity>
           }
@@ -43,6 +47,13 @@ const styles = StyleSheet.create({
   },
   textItem: {
     fontWeight: 'bold',
-    fontSize: 18
+    fontSize: 18,
+    color: colors.secondary
   },
+  cardWrapper: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    margin: 5,
+    alignItems: 'center'
+  }
 })
