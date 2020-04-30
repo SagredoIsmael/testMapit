@@ -16,7 +16,15 @@ const Detail = ({ motocycle, goBack }) =>
                     longitudeDelta: constants.LONGITUDE_DELTA,
                 }}
             >
+                <MapView.Marker
+                    coordinate={{ 
+                        latitude: motocycle.coordenadas.latitud,
+                        longitude: motocycle.coordenadas.longitud,
+                     }}
+                    title={motocycle.nombre}
+                />
             </MapView>
+
         }
 
         {motocycle.precioCompra ?
