@@ -6,7 +6,7 @@ import colors from '../utils/colors'
 import Button from '../components/SimpleButton'
 import Alert from '../components/Alert'
 
-const Detail = ({ motocycle, goBack }) =>
+const Detail = ({ motocycle, goBack, price }) =>
     <View style={styles.container}>
         {motocycle &&
             <MapView
@@ -27,7 +27,7 @@ const Detail = ({ motocycle, goBack }) =>
                 />
             </MapView>
         }
-        {motocycle.precioCompra ?
+        {price ?
             <View style={styles.textWrapper}>
                 <Text style={styles.descriptionText}>
                     El valor mostrado a continuación es una
@@ -38,7 +38,7 @@ const Detail = ({ motocycle, goBack }) =>
                     El valor calculado de recompra de su motocicleta {motocycle.modelo} es de:
                 </Text>
                 <Text style={styles.priceText}>
-                    {motocycle.precioCompra} €
+                    {price} €
                 </Text>
             </View >
             :
