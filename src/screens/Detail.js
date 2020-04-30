@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
         height: '40%'
     },
     textWrapper: {
-        marginTop: '50%',
+        marginTop: '60%',
         margin: '5%',
         borderRadius: 10,
         borderWidth: 1,
