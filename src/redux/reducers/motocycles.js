@@ -1,5 +1,8 @@
 
-import { SET_MOTOCYCLES, FETCH_STATUS_ERROR, FETCH_STATUS_PENDING, SET_MOTOCYCLE_SELECTED } from '../actions/types'
+import {
+  SET_MOTOCYCLES, FETCH_STATUS_ERROR, FETCH_STATUS_PENDING,
+  SET_MOTOCYCLE_SELECTED, FETCH_STATUS_SUCCESS
+} from '../actions/types'
 
 const initialState = {
   data: [],
@@ -27,7 +30,13 @@ export default (state = initialState, action) => {
     case FETCH_STATUS_PENDING:
       return {
         ...state,
-        loading: !state.loading
+        loading: true
+      }
+
+    case FETCH_STATUS_SUCCESS:
+      return {
+        ...state,
+        loading: false
       }
 
     case SET_MOTOCYCLE_SELECTED:
