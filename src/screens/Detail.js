@@ -3,6 +3,8 @@ import { View, StyleSheet, Text } from 'react-native'
 import MapView from 'react-native-maps'
 import constants from '../utils/map'
 import colors from '../utils/colors'
+import Button from '../components/SimpleButton'
+import Alert from '../components/Alert'
 
 const Detail = ({ motocycle, goBack }) =>
     <View style={styles.container}>
@@ -17,16 +19,14 @@ const Detail = ({ motocycle, goBack }) =>
                 }}
             >
                 <MapView.Marker
-                    coordinate={{ 
+                    coordinate={{
                         latitude: motocycle.coordenadas.latitud,
                         longitude: motocycle.coordenadas.longitud,
-                     }}
+                    }}
                     title={motocycle.nombre}
                 />
             </MapView>
-
         }
-
         {motocycle.precioCompra ?
             <View style={styles.textWrapper}>
                 <Text style={styles.descriptionText}>
@@ -48,6 +48,10 @@ const Detail = ({ motocycle, goBack }) =>
                 </Text>
             </View>
         }
+        <View style={styles.buttonsWrapper}>
+            <Button title={'Solicitar cita'} onPress={() => Alert('Cita solicitada')} />
+            <Button title={'Cerrar'} onPress={() => goBack()}/>
+        </View>
     </View>
 
 const styles = StyleSheet.create({
@@ -85,6 +89,9 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 26,
         textAlign: 'center',
+    },
+    buttonsWrapper: {
+        flexDirection: 'row',
     }
 })
 
